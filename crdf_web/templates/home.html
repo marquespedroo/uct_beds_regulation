@@ -1,0 +1,179 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+              <div class="d-flex justify-content-center py-4">
+                <a href="home" class="logo d-flex align-items-center w-auto" style=" text-decoration: none;">
+                  <img src="static/assets/img/logo.png" alt="">
+                  <span class="d-none d-lg-block">CRDF</span>
+                </a>
+              </div><!-- End Logo -->
+
+              <div class="card mb-3">
+
+                <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Entre na sua conta</h5>
+                    <p class="text-center small">Digite o seu nome de usuário e senha para entrar</p>
+                  </div>
+
+                  <form class="row g-3 needs-validation" novalidate method="POST" action="">
+                      {{ form_login.csrf_token }}
+
+                      <div class="col-12">
+                        {{ form_login.username.label(class="form-label") }}
+                      
+                        <div class="input-group has-validation">
+                      
+                          {% if form_login.username.errors %}
+                             {{ form_login.username(class="form-control is-invalid", id="yourUsername", required=True) }}
+                      
+                             {% for erro in form_login.username.errors %}
+                               <div class="invalid-feedback">
+                                  {{ erro }}
+                               </div>
+                             {% endfor %}
+                      
+                          {% else %}
+                             {{ form_login.username(class="form-control", id="yourUsername", required=True) }}
+                          {% endif %}
+                      
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        {{ form_login.password.label }}
+                        <div class="input-group has-validation">
+                            {% if form_login.password.errors %}
+                                {{ form_login.password(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for erro in form_login.password.errors %}
+                                        {{ erro }}
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form_login.password(class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-check">
+                        {{ form_login.remember_data(class="form-check-input", id="rememberMe") }}
+                        <label class="form-check-label" for="rememberMe">{{ form_login.remember_data.label }}</label>
+                    </div>
+                    </div>
+                    <div class="col-12">
+                      {{ form_login.login_button(class="btn btn-primary w-100", type="submit") }}
+                  </div>
+
+                  </form>
+
+                </div>
+              </div>
+
+              <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <h1>Fazer login</h1>
+
+
+        <form method="POST" action="">
+            {{ form_login.csrf_token }}
+
+        <div>
+
+       {{ form_login.username.label }}
+        {% if form_login.username.errors %}
+            {{ form_login.username(class="form-control is-invalid") }}
+        <div>
+            {% for erro in form_login.username.errors %}
+                {{ erro }}
+             {% endfor %}
+        </div>
+        {% else %}
+             {{ form_login.username }}
+        {% endif %}
+
+
+    </div>
+
+
+            {{ form_login.password.label }}
+            {% if form_login.password.errors %}
+                {{ form_login.password }}
+        <div>
+            {% for erro in form_login.password.errors %}
+                {{ erro }}
+             {% endfor %}
+        </div>
+        {% else %}
+             {{ form_login.password }}
+        {% endif %}
+        </div>
+
+            {{ form_login.remember_data.label }}
+            {{ form_login.remember_data }}
+        </div>
+    </fieldset>
+    {{ form_login.login_button }}
+</form>
+</div>
+{% endblock %} -->
