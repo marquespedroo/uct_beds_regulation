@@ -1,105 +1,252 @@
-
-
 {% extends 'base.html' %}
 
 {% block body %}
 
 <body>
 
-  
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
+      <a href="javascript:history.back()" class="logo d-flex align-items-center" style="text-decoration: none;">
 
-      <a href="index.html" class="logo d-flex align-items-center" style="text-decoration: none;">
-        <img src="static/assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">CRDF</span>
-      </a>
-
+          <span class="d-none d-lg-block">CRDF</span>
+    </a>
     </div>
-
-      <nav class="header-nav ms-auto d-flex justify-content-end">  {% if current_user.is_authenticated %}
-          <ul class="d-flex align-items-center">
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="{{ url_for('logout') }}" style="padding-right: 35px;">Sair</a>
-            </li>
-          </ul>
-        {% endif %}
-      </nav>
-      
-
+    <nav class="header-nav ms-auto d-flex justify-content-end">
+      {% if current_user.is_authenticated %}
+      <ul class="d-flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="{{ url_for('logout') }}" style="padding-right: 35px;">Sair</a>
+        </li>
+      </ul>
+      {% endif %}
+    </nav>
   </header><!-- End Header -->
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+    th,
+    td {
+      text-align: center;
+    }
+    h1,
+    h2 {
+      font-weight: bold;
+    }
+  </style>
 
-
-
-  <main  class="container">
-
-    <div class="pagetitle">
-      <h1>Blank Page</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Blank</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
+  <main class="container">
+    <br><br><br><br><br>
     <section class="section">
-          <div class="col-lg-8">
+      <div class="row">
+        <div class="col-lg-11.2">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <h4>
+              {% if hospital == "anchieta_ceilandia_sao_francisco" %}
+                ANCHIETA CEILÂNDIA (SÃO FRANCISCO)
+              {% elif hospital == "hospital_ana_nery" %}
+                HOSPITAL ANA NERY
+              {% elif hospital == "hospital_sao_mateus" %}
+                HOSPITAL SÃO MATEUS
+              {% elif hospital == "uti_domed" %}
+                UTI DOMED
+              {% elif hospital == "hospital_santa_marta" %}
+                HOSPITAL SANTA MARTA
+              {% elif hospital == "hospital_home" %}
+                HOSPITAL HOME
+              {% elif hospital == "hospital_daher" %}
+                HOSPITAL DAHER
+              {% elif hospital == "hospital_maria_auxiliadora" %}
+                HOSPITAL MARIA AUXILIADORA
+              {% elif hospital == "hospital_de_base" %}
+                HOSPITAL DE BASE
+              {% elif hospital == "hospital_santa_maria" %}
+                HOSPITAL SANTA MARIA
+              {% elif hospital == "hospital_da_crianca" %}
+                HOSPITAL DA CRIANÇA
+              {% elif hospital == "hub" %}
+                HUB
+              {% endif %}
+            </h4>
 
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Leitos</h5>
-                <title>Atualizações de Leitos</title>
-            </head>
-            <body>
-                <h1>Atualizações de Leitos</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Número do Leito</th>
-                            <th>Detalhar Leito</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for leito in leitos %}
-                            <tr>
-                                <td>{{ leito.numero }}</td>
-                                <td>
-                                    <form action="{{ url_for('detalhar_leito', leito_id=leito.id) }}" method="GET">
-                                        <button type="submit">Detalhar Leito</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </body>
-  
-    </section>
+                <h5 class="card-title">Taxa de ocupação</h5>
+                <canvas id="barChart" style="max-height: 400px;"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Números de Ocupação <span>/Hoje</span></h5>
+                <canvas id="stackedBarChart" style="max-height: 400px;"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+    <div class="col-lg-11.2">
+        <section class="section">
+          <div class="card">
+            <div class="card-body text-center" class="card-body">
+              <br><br>
+              {% for tipo_leito, leitos in leitos_por_tipo.items() %}
+              <br><br>
+              <h4>Tipo de Leito: <strong>{{ tipo_leito }}</strong></h4>
+              <br><br>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID do Leito</th>
+                    <th scope="col">Status do Leito</th>
+                    <th scope="col">Perfil do Leito</th>
+                    <th scope="col">Status do Paciente</th>
+                    <th scope="col">Nome do Paciente</th>
+                    <th scope="col">Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for leito_data in leitos %}
+                  <tr>
+                    <td>{{ leito_data[0].id_leito }}</td>
+                    <td>
+                      {% if leito_data[0].status_leito == 'Vago' %}
+                        {{ leito_data[0].status_leito }}
+                        <button  class="btn btn-success"><i class="bi bi-check-circle"></i></button>
+                      {% else %}
+                        {{ leito_data[0].status_leito }}
+                        <button  class="btn btn-info"><i class="bi bi-info-circle"></i></button>
+                      {% endif %}
+                    </td>
+                    <td>{{ leito_data[0].perfil_leito }}</td>
+                    <td>
+                      {% if leito_data[0].status_paciente == 'Vago' %}
+                        {{ leito_data[0].status_paciente }}
+                        <button class="btn btn-success"><i class="bi bi-check-circle"></i></button>
+                      {% else %}
+                        {{ leito_data[0].status_paciente }}
+                        <button  class="btn btn-info"><i class="bi bi-info-circle"></i></button>
+                      {% endif %}
+                    </td>
+                    <td>{{ leito_data[0].nome_paciente }}</td>
+                    <td><a href="{{ url_for('detalhes_leito', id_leito=leito_data[0].id_leito) }}" class="btn btn-secondary rounded-pill">Detalhar Leito</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      </main>
+ <!-- Script para renderizar o gráfico -->
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hospitalName = window.location.pathname.split('/').pop();
+    fetch(`/api/taxa_ocupacao_por_hospital/${hospitalName}`)
+      .then(response => response.json())
+      .then(taxasOcupacao => {
+        if (taxasOcupacao) {
+          let labels = ['Vago', 'Ocupado', 'Bloq: paciente particular', 'Bloq: manutenção'];
+          let data = [
+            taxasOcupacao['Vago'] || 0, // caso a chave não exista, usar 0
+            taxasOcupacao['Ocupado'] || 0,
+            taxasOcupacao['Bloq: paciente particular'] || 0,
+            taxasOcupacao['Bloq: manutenção'] || 0
+          ];
 
+          new Chart(document.querySelector('#barChart'), {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Taxa de Ocupação',
+                data: data,
+                backgroundColor: [
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(255, 99, 132, 0.2)', 
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 205, 86, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(75, 192, 192)',
+                  'rgba(255, 99, 132)', 
+                  'rgba(255, 159, 64)',
+                  'rgba(255, 205, 86)',
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    callback: function(value) {
+                      return value.toString() + '%';
+                    }
+                  }
+                }
+              }
+            }
+          });
+        }
+      });
+    
+    fetch(`/api/ocupacao_por_hospital_numeros/${hospitalName}`)
+      .then((response) => response.json())
+      .then((ocupacao) => {
+        var ctx = document.querySelector('#stackedBarChart');
+        var tipos_leitos = Object.keys(ocupacao);
+        var status = ['Vago', 'Ocupado', 'Bloq: paciente particular', 'Bloq: manutenção'];  // Fixo, pois já sabemos quais são esses status
+        var datasets = status.map((s, i) => ({
+            label: s,
+            data: tipos_leitos.map(g => ocupacao[g][s]),
+            backgroundColor: [
+              'rgb(75, 192, 192)', // Cor para 'Ocupado'
+              'rgb(255, 99, 132)',  // Cor para 'Vago'
+              'rgb(255, 205, 86)',
+            ][i],
+            borderWidth: 1
+        }));
 
-   
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: tipos_leitos,
+                datasets: datasets
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Grupos de leitos por status'
+                    }
+                },
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+    });
+  });
+</script>
 
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer" style="display: inline;">
-    <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  {% endblock %}
 </body>
-
+{% endblock %}
 </html>

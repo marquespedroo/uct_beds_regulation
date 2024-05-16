@@ -1,0 +1,26 @@
+
+
+POST  http://127.0.0.1:5000/salvar_leito
+Content-Type: application/json
+
+{
+  "csrf_token": "IjFlNTk4NjI4ZGEwMjUwOTk4NmM5NzdlYTViMDVmYTI2OWY0ZjM3YzEi.Zi_djw.7r-H2nNxQZio_x8b0hJBhL6IFNQ",
+  "id_leito": "121212",
+  "status_leito": "Opção 1",
+  "perfil_leito": "opcaoB",
+  "status_paciente": "opcaoD",
+  "nome_paciente": "sdfsdfds",
+  "data_nascimento": "2022-02-20",
+  "idade": "20",
+  "pontuario_ses": "56654656",
+  "data_admissao": "2020-02-20",
+  "hora_admissao": "20:20",
+  "data_obito": "2020-02-20",
+  "hora_obito": "22:22",
+  "data_transferencia": "2020-02-22",
+  "hora_transferencia": "22:22",
+  "data_alta": "2020-02-22",
+  "hora_alta": "12:12",
+  "nome_colaborador": "Dr Test",
+  "matricula_colaborador": "MAT456"
+}

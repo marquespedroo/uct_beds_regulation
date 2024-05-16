@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -17,12 +18,12 @@
       <nav class="header-nav ms-auto d-flex justify-content-end">  {% if current_user.is_authenticated %}
           <ul class="d-flex align-items-center">
             <li class="nav-item">
-              <a class="nav-link fw-bold" href="{{ url_for('logout') }}" style="padding-right: 15px;">Sair</a>
+              <a class="nav-link" href="{{ url_for('create_account') }}" style="padding-left:30px;">Controle</a>
+              <a class="nav-link" href="{{ url_for('logout') }}" style="padding-left: 40px;">Sair</a>
             </li>
           </ul>
         {% endif %}
       </nav>
-      
 
   </header><!-- End Header -->
 
@@ -34,13 +35,13 @@
       <li class="nav-item">
         <a class="nav-link " href="index.html">
           <i class="bi bi-grid"></i>
-          <span>Relatórios</span>
+          <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <li class="nav-item">
-          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/anchieta_ceilandia_(sao_francisco)">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/anchieta_ceilandia_sao_francisco">
             <i class="ri-hospital-line"></i><span>Hospital Anchieta(SF)</span><i class="ri-chevron-down ms-auto"></i>
           </a>
         </li>
@@ -52,8 +53,8 @@
 
       <li class="nav-item">
         <li class="nav-item">
-          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/anchieta_ceilandia_(sao_francisco)">
-            <i class="ri-hospital-line"></i><span>Hospital Anchieta(SF)</span><i class="ri-chevron-down ms-auto"></i>
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_ana_nery">
+            <i class="ri-hospital-line"></i><span>Hospital Ana Nery</span><i class="ri-chevron-down ms-auto"></i>
           </a>
         </li>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -64,8 +65,8 @@
 
       <li class="nav-item">
         <li class="nav-item">
-          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/anchieta_ceilandia_(sao_francisco)">
-            <i class="ri-hospital-line"></i><span>Hospital Anchieta(SF)</span><i class="ri-chevron-down ms-auto"></i>
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_da_crianca">
+            <i class="ri-hospital-line"></i><span>Hospital da Criança</span><i class="ri-chevron-down ms-auto"></i>
           </a>
         </li>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -74,6 +75,122 @@
         </ul>
       </li>
 
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_daher">
+            <i class="ri-hospital-line"></i><span>Hospital Daher</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+
+    
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_de_base">
+            <i class="ri-hospital-line"></i><span>Hospital de Base</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_home">
+            <i class="ri-hospital-line"></i><span>Hospital Home</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_maria_auxiliadora">
+            <i class="ri-hospital-line"></i><span>Hospital Maria Auxiliadora</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_santa_maria">
+            <i class="ri-hospital-line"></i><span>Hospital Santa Maria</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_santa_marta">
+            <i class="ri-hospital-line"></i><span>Hospital Santa Marta</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hospital_sao_mateus">
+            <i class="ri-hospital-line"></i><span>Hospital São Mateus</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/hub">
+            <i class="ri-hospital-line"></i><span>HUB</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes_leitos/uti_domed">
+            <i class="ri-hospital-line"></i><span>UTI Domed</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+
+        </ul>
+      </li>
+      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/atualizacoes">
+            <i class="ri-hospital-line"></i><span>Atualizações</span><i class="ri-chevron-down ms-auto"></i>
+          </a>
+        </li>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
 
       
       <!-- End Components Nav -->
@@ -86,12 +203,6 @@
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
@@ -101,342 +212,222 @@
         <div class="col-lg-8">
           <div class="row">
 
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>1244</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
-            <!-- Reports -->
-            <div class="col-12">
-              <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id="reportsChart"></div>
-
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
+ 
+            <!-- Taxas de ocupacao -->
+<div class="col-12">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Taxa de Ocupação <span>/Hoje</span></h5>
+      <canvas id="barChart" style="max-height: 400px;"></canvas>
+      <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var ctx = document.querySelector('#barChart');
+            fetch('/api/v1/taxa_ocupacao')
+            .then((response) => response.json())
+            .then((taxas_ocupacao) => {
+                var bedTypes = ['Vago', 'Ocupado', 'Bloq: paciente particular', 'Bloq: manutenção'];
+                var occupancyRates = bedTypes.map(label => taxas_ocupacao[label]);
+    
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: bedTypes,
+                        datasets: [{
+                            label: 'Taxa de Ocupação de Leitos',
+                            data: occupancyRates,
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 99, 132, 0.2)', 
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192)',
+                                'rgba(255, 99, 132)', 
+                                'rgba(255, 159, 64)',
+                                'rgba(255, 205, 86)',
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value, index, values) {
+                                        return value + '%';
+                                    }
+                                }
+                            }
                         }
-                      }).render();
+                    }
+                });
+            });
+        });
+    </script>
+    </div>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="card">           <!-- Numeros de ocupacao -->
+    <div class="card-body">
+      <h5 class="card-title">Números de Ocupação <span>/Hoje</span></h5>
+      <canvas id="stackedBarChart" style="max-height: 400px;"></canvas>
+      <script>
+          document.addEventListener("DOMContentLoaded", () => {
+              var ctx = document.querySelector('#stackedBarChart');
+              fetch('/api/v1/contagem_leitos')
+              .then((response) => response.json())
+              .then((contagens) => {
+                  var grupos = Object.keys(contagens);
+                  var status = Object.keys(contagens[grupos[0]]);
+                  var datasets = status.map((s, i) => ({
+                      label: s,
+                      data: grupos.map(g => contagens[g][s]),
+                      backgroundColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(75, 192, 192)',
+                          'rgb(255, 205, 86)',
+                      ][i],
+                      borderWidth: 1
+                  }));
+      
+                  new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: grupos,
+                          datasets: datasets
+                      },
+                      options: {
+                          plugins: {
+                              title: {
+                                  display: true,
+                                  text: 'Grupos por Status'
+                              }
+                          },
+                          responsive: true,
+                          scales: {
+                              x: {
+                                  stacked: true,
+                              },
+                              y: {
+                                  stacked: true
+                              }
+                          }
+                      }
+                  });
+              });
+          });
+      </script>
+
+
+    </div>
+  </div>
+</div>
+<div class="col-14">
+  <div class="card">           <!-- Leitos vagos por  hospital -->
+    <div class="card-body">
+      <h5 class="card-title">Leitos vagos por  hospital <span>/Hoje</span></h5>
+      <canvas id="barChart1"></canvas>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          var ctx = document.querySelector('#barChart1');
+          fetch('/leitos_vagos_por_hospital')
+            .then((response) => response.json())
+            .then((data) => {
+              var hospitals = Object.keys(data);
+              var datasets = [];
+      
+              // Definir os grupos desejados
+              var groupsToDisplay = ['Adulto', 'Pediátrico', 'Neonatal', 'Coronariano', 'Trauma'];
+      
+              // Nomes completos dos hospitais
+              const nomeHospital = {
+                "anchieta_ceilandia_sao_francisco": "ANCHIETA CEI(SF)",
+                "hospital_ana_nery": "HOSP. ANA NERY",
+                "hospital_sao_mateus": "HOSP. SÃO MATEUS",
+                "uti_domed": "UTI DOMED",
+                "hospital_santa_marta": "HOSP. S.ª MARTA",
+                "hospital_home": "HOSP. HOME",
+                "hospital_daher": "HOSP. DAHER",
+                "hospital_maria_auxiliadora": "HOSP. M.ª AUXILIADORA",
+                "hospital_de_base": "HOSP. DE BASE",
+                "hospital_santa_maria": "HOSP. S.ª MARIA",
+                "hospital_da_crianca": "HOSP. DA CRIANÇA",
+                "hub": "HUB"
+              };
+      
+              // Cores para cada grupo
+              const groupColors = [
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)', // Amarelo
+                'rgb(255, 159, 64)', // Laranja
+                'rgb(255, 99, 132)'  // Azul
+              ];
+      
+              // Preparar os dados para cada grupo
+              groupsToDisplay.forEach((group, index) => {
+                var groupData = {
+                  label: group,
+                  data: hospitals.map(hospital => {
+                    var total = 0;
+                    // Somar os leitos vagos dos subgrupos correspondentes ao grupo atual
+                    Object.keys(data[hospital]).forEach(subgroup => {
+                      if (subgroup.includes(group)) {
+                        total += data[hospital][subgroup];
+                      }
                     });
-                  </script>
-                  <!-- End Line Chart -->
+                    return total;
+                  }),
+                  backgroundColor: groupColors[index], // Usar cores definidas manualmente
+                  borderWidth: 1
+                };
+                datasets.push(groupData);
+              });
+      
+              new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: hospitals.map(hospital => nomeHospital[hospital] || hospital), // Usar os nomes completos dos hospitais
+                  datasets: datasets
+                },
+                options: {
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: 'Leitos vagos por hospital e grupo'
+                    }
+                  },
+                  responsive: true,
+                  scales: {
+                    x: {
+                      stacked: true
+                    },
+                    y: {
+                      stacked: true,
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+            });
+        });
+      </script>
+      
+      
+      
+      
+      
 
-                </div>
 
-              </div>
-            </div><!-- End Reports -->
+    </div>
+  </div>
+</div>
 
-            <!-- Recent Sales -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
-            <!-- Top Selling -->
-            <div class="col-12">
-              <div class="card top-selling overflow-auto">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body pb-0">
-                  <h5 class="card-title">Top Selling <span>| Today</span></h5>
-
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Sold</th>
-                        <th scope="col">Revenue</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>$64</td>
-                        <td class="fw-bold">124</td>
-                        <td>$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                        <td>$46</td>
-                        <td class="fw-bold">98</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
-                        <td class="fw-bold">74</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                        <td>$32</td>
-                        <td class="fw-bold">63</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                        <td>$79</td>
-                        <td class="fw-bold">41</td>
-                        <td>$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Top Selling -->
 
           </div>
         </div><!-- End Left side columns -->
@@ -444,284 +435,147 @@
         <!-- Right side columns -->
         <div class="col-lg-4">
 
-          <!-- Recent Activity -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
+<!-- Recent Activity -->
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Atividade recente</h5>
+    <div class="activity" id="recentActivity">
+      <!-- Aqui será inserido o conteúdo da atividade recente -->
+    </div>
+  </div>
+</div>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const activityContainer = document.getElementById("recentActivity");
 
-            <div class="card-body">
-              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+    fetch('/api/v1/buscar_ultimas_atualizacoes_por_hospital')
+      .then((response) => response.json())
+      .then((ultimasAtualizacoes) => {
+        ultimasAtualizacoes.forEach((atualizacao) => {
+          // Formatar a data
+          const dataFormatada = new Date(atualizacao.data_atualizacao).toLocaleString('pt-BR');
 
-              <div class="activity">
+          // Mapear o identificador do hospital para o nome completo
+          const nomeHospital = {
+            "anchieta_ceilandia_sao_francisco": "ANCHIETA CEILÂNDIA (SÃO FRANCISCO)",
+            "hospital_ana_nery": "HOSPITAL ANA NERY",
+            "hospital_sao_mateus": "HOSPITAL SÃO MATEUS",
+            "uti_domed": "UTI DOMED",
+            "hospital_santa_marta": "HOSPITAL SANTA MARTA",
+            "hospital_home": "HOSPITAL HOME",
+            "hospital_daher": "HOSPITAL DAHER",
+            "hospital_maria_auxiliadora": "HOSPITAL MARIA AUXILIADORA",
+            "hospital_de_base": "HOSPITAL DE BASE",
+            "hospital_santa_maria": "HOSPITAL SANTA MARIA",
+            "hospital_da_crianca": "HOSPITAL DA CRIANÇA",
+            "hub": "HUB"
+          };
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class="activity-content">
-                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                  </div>
-                </div><!-- End activity item-->
+          // Obter o nome completo do hospital
+          const hospitalCompleto = nomeHospital[atualizacao.hospital] || atualizacao.hospital;
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div><!-- End activity item-->
+          // Criar elementos HTML para cada entrada de atividade recente
+          const activityItem = document.createElement("div");
+          activityItem.classList.add("activity-item", "d-flex");
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
-                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div><!-- End activity item-->
+          const activityLabel = document.createElement("div");
+          activityLabel.classList.add("activite-label");
+          activityLabel.textContent = dataFormatada;
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
-                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                  <div class="activity-content">
-                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                  </div>
-                </div><!-- End activity item-->
+          const activityBadge = document.createElement("i");
+          activityBadge.classList.add("bi", "bi-circle-fill", "activity-badge", "align-self-start");
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
-                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                  <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div><!-- End activity item-->
+          const activityContent = document.createElement("div");
+          activityContent.classList.add("activity-content");
+          activityContent.innerHTML = `Um leito foi atualizado no ${hospitalCompleto}`;
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
+          activityItem.appendChild(activityLabel);
+          activityItem.appendChild(activityBadge);
+          activityItem.appendChild(activityContent);
+          activityContainer.appendChild(activityItem);
+        });
+      });
+  });
+</script>
 
-              </div>
+<!-- End Recent Activity -->
 
-            </div>
-          </div><!-- End Recent Activity -->
 
-          <!-- Budget Report -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
+<!-- Total de leitos -->
+<div class="card">
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
+  <div class="card-body pb-0">
+    <h5 class="card-title">Total de leitos <span>| 335</span></h5>
 
-            <div class="card-body pb-0">
-              <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+    <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
-              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        echarts.init(document.querySelector("#trafficChart")).setOption({
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            top: '5%',
+            left: 'center'
+          },
+          series: [{
+            name: 'Total:335',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '18',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [{
+                value: 205, // Valor para a categoria Adulto
+                name: 'Adulto'
+              },
+              {
+                value: 65, // Valor para a categoria Pediátrico
+                name: 'Pediátrico'
+              },
+              {
+                value: 35, // Valor para a categoria Neonatal
+                name: 'Neonatal'
+              },
+              {
+                value: 20, // Valor para a categoria Trauma
+                name: 'Trauma'
+              },
+              {
+                value: 9, // Valor para a categoria Coronariano
+                name: 'Coronariano'
+              }
+            ]
+          }]
+        });
+      });
+    </script>
 
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
-                    legend: {
-                      data: ['Allocated Budget', 'Actual Spending']
-                    },
-                    radar: {
-                      // shape: 'circle',
-                      indicator: [{
-                          name: 'Sales',
-                          max: 6500
-                        },
-                        {
-                          name: 'Administration',
-                          max: 16000
-                        },
-                        {
-                          name: 'Information Technology',
-                          max: 30000
-                        },
-                        {
-                          name: 'Customer Support',
-                          max: 38000
-                        },
-                        {
-                          name: 'Development',
-                          max: 52000
-                        },
-                        {
-                          name: 'Marketing',
-                          max: 25000
-                        }
-                      ]
-                    },
-                    series: [{
-                      name: 'Budget vs spending',
-                      type: 'radar',
-                      data: [{
-                          value: [4200, 3000, 20000, 35000, 50000, 18000],
-                          name: 'Allocated Budget'
-                        },
-                        {
-                          value: [5000, 14000, 28000, 26000, 42000, 21000],
-                          name: 'Actual Spending'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
 
-            </div>
-          </div><!-- End Budget Report -->
 
-          <!-- Website Traffic -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
 
-            <div class="card-body pb-0">
-              <h5 class="card-title">Website Traffic <span>| Today</span></h5>
 
-              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  echarts.init(document.querySelector("#trafficChart")).setOption({
-                    tooltip: {
-                      trigger: 'item'
-                    },
-                    legend: {
-                      top: '5%',
-                      left: 'center'
-                    },
-                    series: [{
-                      name: 'Access From',
-                      type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        show: false,
-                        position: 'center'
-                      },
-                      emphasis: {
-                        label: {
-                          show: true,
-                          fontSize: '18',
-                          fontWeight: 'bold'
-                        }
-                      },
-                      labelLine: {
-                        show: false
-                      },
-                      data: [{
-                          value: 1048,
-                          name: 'Search Engine'
-                        },
-                        {
-                          value: 735,
-                          name: 'Direct'
-                        },
-                        {
-                          value: 580,
-                          name: 'Email'
-                        },
-                        {
-                          value: 484,
-                          name: 'Union Ads'
-                        },
-                        {
-                          value: 300,
-                          name: 'Video Ads'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
 
-            </div>
-          </div><!-- End Website Traffic -->
 
-          <!-- News & Updates Traffic -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class="card-body pb-0">
-              <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
-
-              <div class="news">
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-1.jpg" alt="">
-                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-2.jpg" alt="">
-                  <h4><a href="#">Quidem autem et impedit</a></h4>
-                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-3.jpg" alt="">
-                  <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-4.jpg" alt="">
-                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-5.jpg" alt="">
-                  <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-            </div>
-          </div><!-- End News & Updates -->
+  </div>
+</div>
+<!-- End total de leitos -->
 
         </div><!-- End Right side columns -->
 
@@ -730,44 +584,8 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer =======
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div> -->
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class=" bi bi-arrow-up"></i></a>
 
 </body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <h1> TESTEEEEE</h1>
-
-{% if current_user.is_authenticated %}
-
-<li class="nav-item">
-  <a class="nav-link" href="{{ url_for('logout')}}">Sair</a>
-</li>
-
-{% else %}
-{% endif %}
 {% endblock %} -->

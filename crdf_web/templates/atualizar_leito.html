@@ -6,42 +6,29 @@
 
   
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center" style="text-decoration: none;">
-        <img src="static/assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">CRDF</span>
-      </a>
-
-    </div>
-
-      <nav class="header-nav ms-auto d-flex justify-content-end">  {% if current_user.is_authenticated %}
-          <ul class="d-flex align-items-center">
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="{{ url_for('logout') }}" style="padding-right: 35px;">Sair</a>
-            </li>
-          </ul>
-        {% endif %}
-      </nav>
-      
-
-  </header><!-- End Header -->
+ <header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="javascript:history.back()" class="logo d-flex align-items-center" style="text-decoration: none;">
+      <img src="static/assets/img/logo.png" alt="">
+      <span class="d-none d-lg-block">CRDF</span>
+    </a>
+  </div>
+  <nav class="header-nav ms-auto d-flex justify-content-end">
+    {% if current_user.is_authenticated %}
+    <ul class="d-flex align-items-center">
+      <li class="nav-item">
+        <a class="nav-link fw-bold" href="{{ url_for('logout') }}" style="padding-right: 35px;">Sair</a>
+      </li>
+    </ul>
+    {% endif %}
+  </nav>
+</header><!-- End Header -->
 
 
 
   <main  class="container">
+    <br><br><br><br><br>
 
-    <div class="pagetitle">
-      <h1>Blank Page</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Blank</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
 
     <section class="section">
           <div class="col-lg-8">
@@ -50,23 +37,24 @@
               <div class="card-body">
                 <h5 class="card-title">Leitos</h5>
                 <div class="container">
-                    <form method="POST" action="{{ url_for('salvar_leito') }}" >
+                    <form action="{{ url_for('salvar_leito') }}" method="POST" >
                         {{ form.csrf_token }}
                         <div class="row mb-3">
-                            <label for="id_leito" class="col-sm-2 col-form-label">ID do leito</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id_leito" name="id_leito">
-                            </div>
+                            <div class="row mb-3">
+                                <label for="id_leito" class="col-sm-2 col-form-label">ID do leito</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="id_leito" name="id_leito" value="{{ id_leito }}" readonly>
+                                </div>
                         </div>
                         <div class="row mb-3">
                             <label for="status_leito" class="col-sm-2 col-form-label">Status do leito</label>
                             <div class="col-sm-10">
                                 <select class="form-select" id="status_leito" name="status_leito">
                                     <option selected disabled>Selecione o status</option>
-                                    <option value="Opção 1">OCUPADO</option>
-                                    <option value="opcao2">VAGO</option>
-                                    <option value="opcao3">BLOQUEADO - PACIENTE PARTICULAR</option>
-                                    <option value="opcao3">BLOQUEADO - PACIENTE PARTICULAR</option>
+                                    <option value="Ocupado">OCUPADO</option>
+                                    <option value="Vago">VAGO</option>
+                                    <option value="Bloq:Paciente particular">BLOQUEADO - PACIENTE PARTICULAR</option>
+                                    <option value="Bloq:manuten">BLOQUEADO - PACIENTE PARTICULAR</option>
                                 </select>
                             </div>
                         </div>
@@ -75,9 +63,9 @@
                             <div class="col-sm-10">
                                 <select class="form-select" id="perfil_leito" name="perfil_leito">
                                     <option selected disabled>Selecione o perfil</option>
-                                    <option value="opcaoA">HEMODIÁLISE</option>
-                                    <option value="opcaoB">ISOLAMENTO</option>
-                                    <option value="opcaoC">REGULAR</option>
+                                    <option value="Hemodiálise">HEMODIÁLISE</option>
+                                    <option value="Isolamento">ISOLAMENTO</option>
+                                    <option value="Regular">REGULAR</option>
                                 </select>
                             </div>
                         </div>
@@ -87,20 +75,21 @@
                             <div class="col-sm-10">
                                 <select class="form-select" id="status_paciente" name="status_paciente">
                                     <option selected disabled>Selecione o status</option>
-                                    <option value="opcaoA">PERMANCE NO LEITO</option>
-                                    <option value="opcaoB">ALTA ADM</option>
-                                    <option value="opcaoC">TRANSFERIDO PARA OUTRA UNIDADE</option>
-                                    <option value="opcaoD">SAIU DE ALTA</option>
-                                    <option value="opcaoE">EM LISTA PARA SER TRANSFERIDO</option>
-                                    <option value="opcaoF">OCUPADO COM PACIENTE PARTICULAR</option>
-                                    <option value="opcaoG">VAGO</option>
+                                    <option value="Permanece no leito">PERMANCE NO LEITO</option>
+                                    <option value="Alta:ADM">ALTA ADM</option>
+                                    <option value="Trans. p/ outra unidade">TRANSFERIDO PARA OUTRA UNIDADE</option>
+                                    <option value="Saiu alta">SAIU DE ALTA</option>
+                                    <option value="Em lista p/ transferência">EM LISTA PARA SER TRANSFERIDO</option>
+                                    <option value="Ocup:Paciente particular">OCUPADO COM PACIENTE PARTICULAR</option>
+                                    <option value="Vago">VAGO</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="nome_paciente" class="col-sm-2 col-form-label">Nome do paciente</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="nome_paciente" name="nome_paciente" required>
+                                <input type="text" class="form-control" id="nome_paciente" name="nome_paciente">
+                                <input class="form-check-input" type="checkbox" id="nome_paciente_nsa" name="nome_paciente" value="nsa"> Não se aplica
                             </div>
                         </div>
                                                 
@@ -108,68 +97,77 @@
                             <label for="data_nascimento" class="col-sm-2 col-form-label">Data de nascimento</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
+                                <input class="form-check-input" type="checkbox" id="data_nascimento_nsa" name="data_nascimento" value="nsa"> Não se aplica
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="idade" class="col-sm-2 col-form-label">Idade</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="idade" name="idade">
-                            </div>
-                        </div>
+
                         <div class="row mb-3">
                             <label for="pontuario_ses" class="col-sm-2 col-form-label">Prontuário SES</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" id="pontuario_ses" name="pontuario_ses">
+                                <input class="form-control" id="pontuario_ses" name="pontuario_ses">
+                                <input class="form-check-input" type="checkbox" id="pontuario_ses_nsa" name="pontuario_ses" value="nsa"> Não se aplica
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="data_admissao" class="col-sm-2 col-form-label">Data de admissão</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="data_admissao" name="data_admissao">
+                                <input class="form-check-input" type="checkbox" id="data_admissao_nsa" name="data_admissao" value="nsa"> Não se aplica
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="hora_admissao" class="col-sm-2 col-form-label">Hora da admissão</label>
                             <div class="col-sm-10">
                                 <input type="time" class="form-control" id="hora_admissao" name="hora_admissao">
+                                <input class="form-check-input" type="checkbox" id="hora_admissao_nsa" name="hora_admissao" value="nsa"> Não se aplica
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="data_obito" class="col-sm-2 col-form-label">Data do óbito</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="data_obito" name="data_obito">
+                                <input class="form-check-input" type="checkbox" id="data_obito_nsa" name="data_obito" value="nsa"> Não se aplica
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="hora_obito" class="col-sm-2 col-form-label">Hora do óbito</label>
                             <div class="col-sm-10">
                                 <input type="time" class="form-control" id="hora_obito" name="hora_obito">
+                                <input class="form-check-input" type="checkbox" id="hora_obito_nsa" name="hora_obito" value="nsa"> Não se aplica
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="data_transferencia" class="col-sm-2 col-form-label">Data da transferência</label>
-                            <div class="col-sm-10">
-                                <input type="date" class="form-control" id="data_transferencia" name="data_transferencia">
+                            <div class="row mb-3">
+                                <label for="data_transferencia" class="col-sm-2 col-form-label">Data da transferência</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" id="data_transferencia" name="data_transferencia">
+                                    <input class="form-check-input" type="checkbox" id="data_transferencia_nsa" name="data_transferencia" value="nsa"> Não se aplica
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="hora_transferencia" class="col-sm-2 col-form-label">Hora da transferência</label>
-                            <div class="col-sm-10">
-                                <input type="time" class="form-control" id="hora_transferencia" name="hora_transferencia">
+                            
+                            <div class="row mb-3">
+                                <label for="hora_transferencia" class="col-sm-2 col-form-label">Hora da transferência</label>
+                                <div class="col-sm-10">
+                                    <input type="time" class="form-control" id="hora_transferencia" name="hora_transferencia">
+                                    <input class="form-check-input" type="checkbox" id="hora_transferencia_nsa" name="hora_transferencia" value="nsa"> Não se aplica
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="data_alta" class="col-sm-2 col-form-label">Data da alta</label>
-                            <div class="col-sm-10">
-                                <input type="date" class="form-control" id="data_alta" name="data_alta">
+                            
+                            <div class="row mb-3">
+                                <label for="data_alta" class="col-sm-2 col-form-label">Data da alta</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" id="data_alta" name="data_alta">
+                                    <input class="form-check-input" type="checkbox" id="data_alta_nsa" name="data_alta" value="nsa"> Não se aplica
+                                </div>
                             </div>
-                        </div>
+
                         <div class="row mb-3">
                             <label for="hora_alta" class="col-sm-2 col-form-label">Hora da alta</label>
                             <div class="col-sm-10">
                                 <input type="time" class="form-control" id="hora_alta" name="hora_alta">
+                                <input class="form-check-input" type="checkbox" id="hora_alta_nsa" name="hora_alta" value="nsa"> Não se aplica
                             </div>
                         </div>
+
                         <div class="row mb-3">
                             <label for="nome_colaborador" class="col-sm-2 col-form-label">Nome do colaborador</label>
                             <div class="col-sm-10">
@@ -197,13 +195,31 @@
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </div>
+                        <input type="hidden" name="hospital" value="{{ hospital }}">
+                        <input type="hidden" id="idade_hidden" name="idade">
+                        <input type="hidden" name="tipo_leito" value="{{ tipo_leito }}">
                     </form>  
   
   
     </section>
 
+<!-- Inclua este script no final do seu arquivo HTML, antes do fechamento da tag body -->
+<script>
+    function calcularIdade() {
+        var dataNascimento = document.getElementById("data_nascimento").value;
+        var dataAtual = new Date();
+        var dataNascimentoDate = new Date(dataNascimento);
+        var diferenca = dataAtual.getTime() - dataNascimentoDate.getTime();
+        var idade = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365.25));
 
-   
+        // Preencha automaticamente um campo oculto com o valor da idade
+        document.getElementById("idade_hidden").value = idade;
+    }
+
+    // Adicione um listener para chamar a função calcularIdade() quando a data de nascimento for alterada
+    document.getElementById("data_nascimento").addEventListener("change", calcularIdade);
+</script>
+
 
   </main><!-- End #main -->
 

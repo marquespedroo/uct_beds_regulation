@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="javascript:history.back()" class="logo d-flex align-items-center" style="text-decoration: none;">
+          <img src="static/assets/img/logo.png" alt="">
+          <span class="d-none d-lg-block">CRDF</span>
+    </a>
+    </div>
+    <nav class="header-nav ms-auto d-flex justify-content-end">
+      {% if current_user.is_authenticated %}
+      <ul class="d-flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="{{ url_for('logout') }}" style="padding-right: 35px;">Sair</a>
+        </li>
+      </ul>
+      {% endif %}
+    </nav>
+  </header><!-- End Header -->
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+    th,
+    td {
+      text-align: center;
+    }
+    h1,
+    h2 {
+      font-weight: bold;
+    }
+  </style>
+
+<main class="container">
+  <br><br><br><br><br>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card text-center">
+          <div class="card-body ">
+            <h3 class="card-title "> <h4>Leito {{ leito.id_leito }} detalhado: </h4></h3>
+          </div>
+        </div>
+
+
+        <div class="card text-center">
+          <div class="card-body">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                <tr>
+                  <td><p><strong>Status do leito:</strong> {{ leito.status_leito }}</p></th>
+                </tr>
+                <tr>
+                  <td><p><strong>Perfil do leito:</strong> {{ leito.perfil_leito }}</p></th>
+                <tr>
+                  <td><p><strong>Status do paciente:</strong> {{ leito.status_paciente }}</p></th>
+                </tr>
+                <tr>
+                  <td><p><strong>Nome do paciente:</strong> {{ 'não se aplica' if leito.nome_paciente is none else leito.nome_paciente }}</p></th>
+                </tr>
+                <tr>
+                  <td><p><strong>Data de nascimento:</strong> {{ 'não se aplica' if leito.data_nascimento is none else leito.data_nascimento.strftime('%d/%m/%Y') }}</p></th>
+                </tr>
+                <tr>      
+                  <td><p><strong>Idade:</strong> {{ 'não se aplica' if leito.idade is none else leito.idade }}</p></th>
+                </tr>
+
+                <tr>
+                  <td><p><strong>Pontuário SES:</strong> {{ 'não se aplica' if leito.pontuario_ses is none else leito.pontuario_ses }}</p></th>
+                </tr>
+
+                <tr>
+                  <td><p><strong>Data de admissão:</strong> {{ 'não se aplica' if leito.data_admissao is none else leito.data_admissao.strftime('%d/%m/%Y') }}</p></th>
+                </tr>
+          
+                <tr>
+                  <td><p><strong>Hora de admissão:</strong> {{ 'não se aplica' if leito.hora_admissao is none else leito.hora_admissao.strftime('%H:%M:%S') }}</p></th>
+                </tr>
+          
+                <tr>
+                    <td><p><strong>Data de óbito:</strong> {{ 'não se aplica' if leito.data_obito is none else leito.data_obito.strftime('%d/%m/%Y') }}</p></th>
+                  </tr>
+              
+                  <tr>
+                    <td><p><strong>Hora de óbito:</strong> {{ 'não se aplica' if leito.hora_obito is none else leito.hora_obito.strftime('%H:%M:%S') }}</p></th>
+                  </tr>
+            
+                  <tr>
+                    <td><p><strong>Data de transferência:</strong> {{ 'não se aplica' if leito.data_transferencia is none else leito.data_transferencia.strftime('%d/%m/%Y') }}</p></th>
+                  </tr>
+          
+                  <tr>        
+                  <td><p><strong>Hora de transferência:</strong> {{ 'não se aplica' if leito.hora_transferencia is none else leito.hora_transferencia.strftime('%H:%M:%S') }}</p></th>
+                  </tr>
+          
+                  <tr>
+                    <td><p><strong>Data de alta:</strong> {{ 'não se aplica' if leito.data_alta is none else leito.data_alta.strftime('%d/%m/%Y') }}</p></th>
+                  </tr>
+          
+                  <tr>
+                    <td><p><strong>Hora de alta:</strong> {{ 'não se aplica' if leito.hora_alta is none else leito.hora_alta.strftime('%H:%M:%S') }}</p></th>
+                  </tr>
+          
+                  <tr>
+                    <td><p><strong>Nome do colaborador:</strong> {{ leito.nome_colaborador }}</p></th>
+                  </tr>
+              
+                  <tr>
+                      <td><p><strong>Matrícula do colaborador:</strong> {{ leito.matricula_colaborador }}</p></th>
+                  </tr>
+            </tr>
+          </tbody> 
+        </table>
+      </div>
+    </div>
+      
+      </section>
+            
+      <div class="card">
+        <div class="card-body text-center">
+            <h2 class="card-title"><h4>Atualizações</h4></h2>
+            <div class="container">
+              <div class="table-responsive table-container"></div>
+                <div class="table-responsive table-container">
+                 <table class="table table-hover text-center">
+                      <thead>
+                        <tr>
+                          <th scope="col">Hora e data do registro</th>
+                          <th scope="col">Status do leito</th>
+                          <th scope="col">Perfil do leito</th>
+                          <th scope="col">Status do paciente</th>
+                          <th scope="col">Nome do paciente</th>
+                          <th scope="col">Data de nasc.</th>
+                          <th scope="col">idade</th>
+                          <th scope="col">Prontuário SES</th>
+                          <th scope="col">Data de admissão</th>
+                          <th scope="col">Hora de admissão</th>
+                          <th scope="col">Data do óbito</th>
+                          <th scope="col">Hora do óbito</th>
+                          <th scope="col">Data da transferência</th>
+                          <th scope="col">Hora da transferência</th>
+                          <th scope="col">Data da alta</th>
+                          <th scope="col">Hora da alta</th>
+                          <th scope="col">Nome do colaborador</th>
+                          <th scope="col">Matrícula do colaborador</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for entrada in atualizacoes_leito %}
+                    <tr>
+                      <td>{{ entrada.data_atualizacao.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                      <td>{{ entrada.status_leito }}</td>
+                      <td>{{ entrada.perfil_leito }}</td>
+                      <td>{{ entrada.status_paciente }}</td>
+                      <td>{{ 'não se aplica' if entrada.nome_paciente is none else entrada.nome_paciente }}</td>
+                      <td>{{ 'não se aplica' if entrada.data_nascimento is none else entrada.data_nascimento.strftime('%d/%m/%Y') }}</td>
+                      <td>{{ 'não se aplica' if entrada.idade is none else entrada.idade }}</td>
+                      <td>{{ 'não se aplica' if entrada.pontuario_ses is none else entrada.pontuario_ses }}</td>
+                      <td>{{ 'não se aplica' if entrada.data_admissao is none else entrada.data_admissao.strftime('%d/%m/%Y')}}</td>
+                      <td>{{ 'não se aplica' if entrada.hora_admissao is none else entrada.hora_admissao.strftime('%H:%M:%S') }}</td>
+                      <td>{{ 'não se aplica' if entrada.data_obito is none else entrada.data_obito.strftime('%d/%m/%Y') }}</td>
+                      <td>{{ 'não se aplica' if entrada.hora_obito is none else entrada.hora_obito.strftime('%H:%M:%S') }}</td>
+                      <td>{{ 'não se aplica' if entrada.data_transferencia is none else entrada.data_transferencia.strftime('%d/%m/%Y ') }}</td>
+                      <td>{{ 'não se aplica' if entrada.hora_transferencia is none else entrada.hora_transferencia.strftime('%H:%M:%S') }}</td>
+                      <td>{{ 'não se aplica' if entrada.data_alta is none else entrada.data_alta.strftime('%d/%m/%Y ') }}</td>
+                      <td>{{ 'não se aplica' if entrada.hora_alta is none else entrada.hora_alta.strftime(' %H:%M:%S') }}</td>
+                      <td>{{ entrada.nome_colaborador }}</td>
+                      <td>{{ entrada.matricula_colaborador }}</td>
+                      
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+ </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer" style="display: inline;">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+</body>
+{% endblock %}
+</html>
