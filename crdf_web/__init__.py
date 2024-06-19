@@ -7,7 +7,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '19e7e09074055362bf4032b218a7a315'
+app.config['SECRET_KEY'] = '*******'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crdf.db'
 
 env = Environment(loader=FileSystemLoader('templates'))
